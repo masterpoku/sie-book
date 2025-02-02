@@ -11,7 +11,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('materi_id');  // Just a regular column, no foreign key
             $table->string('name');
-            $table->text('description')->nullable();
+            $table->longtext('description')->nullable();
             $table->timestamps();
         });
     }
