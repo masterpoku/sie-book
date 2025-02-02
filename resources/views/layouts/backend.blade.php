@@ -149,7 +149,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <span class="fw-semibold">maruji</span>
+                                                    <span class="fw-semibold">Maulina Hajarotul Az.</span>
                                                     <small class="text-muted">Admin</small>
                                                 </div>
                                             </div>
