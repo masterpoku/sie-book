@@ -25,6 +25,7 @@
                     <th>Mata Pelajaran</th>
                     <th>Kelas</th>
                     <th>Nama Materi</th>
+                    <th>Deskripsi</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -35,6 +36,7 @@
                         <td>{{ $item->mapel }}</td>
                         <td>{{ $item->kelas }}</td>
                         <td>{{ $item->name }}</td>
+                        <td>{{ $item->description }}</td>
                         <td>
                             <!-- Tombol Edit -->
                             <button type="button" class="btn btn-sm btn-warning" 
@@ -67,7 +69,6 @@
                                         <div class="mb-3">
                                             <label for="mapel" class="form-label">Mata Pelajaran</label>
                                             <select class="form-control" id="mapel" name="mapel" required>
-                                                <!-- Loop through available mapel (subjects) -->
                                                 @foreach($mapelList as $mapel)
                                                     <option value="{{ $mapel->mapel }}" {{ $item->mapel == $mapel->mapel ? 'selected' : '' }}>
                                                         {{ $mapel->mapel }}
@@ -78,7 +79,6 @@
                                         <div class="mb-3">
                                             <label for="kelas" class="form-label">Kelas</label>
                                             <select class="form-control" id="kelas" name="kelas" required>
-                                                <!-- Loop through available kelas (classes) -->
                                                 @foreach($kelasList as $kelas)
                                                     <option value="{{ $kelas->kelas }}" {{ $item->kelas == $kelas->kelas ? 'selected' : '' }}>
                                                         {{ $kelas->kelas }}
@@ -89,6 +89,10 @@
                                         <div class="mb-3">
                                             <label for="name" class="form-label">Nama Materi</label>
                                             <input type="text" class="form-control" id="name" name="name" value="{{ $item->name }}" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="description" class="form-label">Deskripsi</label>
+                                            <textarea class="form-control" id="description" name="description" rows="3">{{ $item->description }}</textarea>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -120,7 +124,6 @@
                     <div class="mb-3">
                         <label for="mapel" class="form-label">Mata Pelajaran</label>
                         <select class="form-control" id="mapel" name="mapel" required>
-                            <!-- Loop through available mapel (subjects) -->
                             @foreach($mapelList as $mapel)
                                 <option value="{{ $mapel->mapel }}">{{ $mapel->mapel }}</option>
                             @endforeach
@@ -129,7 +132,6 @@
                     <div class="mb-3">
                         <label for="kelas" class="form-label">Kelas</label>
                         <select class="form-control" id="kelas" name="kelas" required>
-                            <!-- Loop through available kelas (classes) -->
                             @foreach($kelasList as $kelas)
                                 <option value="{{ $kelas->kelas }}">{{ $kelas->kelas }}</option>
                             @endforeach
@@ -138,6 +140,10 @@
                     <div class="mb-3">
                         <label for="name" class="form-label">Nama Materi</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan Nama Materi" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Deskripsi</label>
+                        <textarea class="form-control" id="description" name="description" rows="3" placeholder="Masukkan deskripsi materi"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
