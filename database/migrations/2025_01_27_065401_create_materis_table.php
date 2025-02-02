@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('mapel'); // Mata Pelajaran
             $table->string('kelas'); // Kelas
             $table->string('name'); // Nama Materi
+            $table->longText('description')->nullable(); // Deskripsi Materi (bisa kosong)
             $table->timestamps(); // created_at and updated_at timestamps
         });
     }
