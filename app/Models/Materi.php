@@ -27,6 +27,6 @@ class Materi extends Model
     // Relasi ke Mapel
     public function mapel()
     {
-        return $this->belongsTo(Mapel::class, 'mapel_id', 'id');
+        return $this->belongsTo(Mapel::class, 'mapel', 'mapel');
     }
 }

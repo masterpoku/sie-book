@@ -22,4 +22,8 @@ class Submateri extends Model
     {
         return $this->belongsTo(Materi::class, 'materi_id', 'id');
     }
+    public function mapel()
+    {
+        return $this->belongsTo(Mapel::class, 'mapel', 'mapel');
+    }
 }

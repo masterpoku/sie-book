@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\IndexSiswaController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\MapelController;
 use App\Http\Controllers\MateriController;
@@ -77,3 +78,6 @@ Route::post('/quiz', [QuisionerController::class, 'store'])->name('quiz.store');
 
 Route::put('/quiz/{id}/edit', [QuisionerController::class, 'update']);
 Route::delete('/quiz/{id}', [QuisionerController::class, 'destroy'])->name('quiz.destroy');
+
+
+Route::get('/siswa/index', [IndexSiswaController::class, 'index'])->name('indexsiswa.index');

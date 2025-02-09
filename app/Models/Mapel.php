@@ -18,4 +18,9 @@ class Mapel extends Model
     {
         return $this->hasMany(Materi::class, 'mapel_id', 'id');
     }
+    public function mapel()
+{
+    return $this->belongsTo(Mapel::class, 'mapel', 'mapel');
+}
+
 }
