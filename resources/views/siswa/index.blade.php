@@ -55,7 +55,7 @@
                                                     <!-- Submateri -->
                                                     <li>
                                                         <a href="#" onclick="showContent('{{ $subMateri }}')" class="block p-2 bg-gray-100 rounded hover:bg-gray-200">
-                                                            {{ $subMateri }}
+                                                            {{ $subMateri }} 
                                                         </a>
                                                     </li>
                                                 @endforeach
@@ -72,6 +72,7 @@
                 <section class="col-span-2 bg-white p-4 rounded shadow" id="main-content">
                     <h1 class="text-xl font-bold mb-4" id="content-title">Hallo Siswa Teladan</h1>
                     <div id="content-text">{!! $konten['judul_submateri'] ?? 'Silakan pilih sub-materi untuk melihat isi materinya.' !!}</div>
+
 
                 </section>
             </div>
@@ -96,7 +97,7 @@
 
     function showContent(title) {
         document.getElementById('content-title').innerText = title;
-        document.getElementById('content-text').innerText = kontenMateri[title] || 'Konten belum tersedia.';
+        document.getElementById('content-text').innerHTML = kontenMateri[title] || 'Konten belum tersedia.';
     }
 </script>
 
