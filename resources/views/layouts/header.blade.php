@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-    <title>{{ $title }} | SIE-BOOK</title>
+    <title>{{ $title }} | CerdasLearn</title>
     <meta name="description" content="" />
 
     @yield('top')
@@ -58,7 +58,7 @@
                         <span class="app-brand-logo demo">
                             <img src="{{ asset('template/templateAdmin/assets/img/sa.png') }}" width="50" alt="Logo">
                         </span>
-                        <span class="app-brand-text demo menu-text fw-bolder ms-2">SIE-BOOK</span>
+                        <span class="app-brand-text demo menu-text fw-bolder ms-2">CerdasLearn</span>
                     </a>
                     <a href="#" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
                         <i class="bx bx-chevron-left bx-sm align-middle"></i>

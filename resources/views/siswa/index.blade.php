@@ -18,7 +18,7 @@
         <!-- Header -->
         <header class="bg-blue-600 text-white p-4">
             <div class="container mx-auto flex justify-between items-center">
-                <h1 class="text-2xl font-bold">E-Learning Platform</h1>
+                <h1 class="text-2xl font-bold">CerdasLearn</h1>
                 <nav>
                     <ul class="flex space-x-4">
                         <li><a href="#" class="hover:underline">Beranda</a></li>
@@ -81,7 +81,7 @@
         <!-- Footer -->
         <footer class="bg-blue-600 text-white p-4">
             <div class="container mx-auto text-center">
-                <p>&copy; <script>document.write(new Date().getFullYear());</script> E-Learning Platform. All rights reserved.</p>
+                <p>&copy; <script>document.write(new Date().getFullYear());</script> CerdasLearn. All rights reserved.</p>
             </div>
         </footer>
     </div>
