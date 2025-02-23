@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-    <title>{{ $title }} | CerdasLearn</title>
+    <title>{{ $title }} | DiGiDuGo</title>
     <meta name="description" content="" />
 
     @yield('top')
@@ -116,6 +116,12 @@
                         <a href="{{ route('quiz.index') }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-edit-alt"></i>
                             <div>Quisioner</div>
+                        </a>
+                    </li>
+                    <li class="menu-item {{ request()->is('data/quisioner*') ? 'active' : '' }}">
+                        <a href="{{ route('quiz.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-edit-alt"></i>
+                            <div>Validasi</div>
                         </a>
                     </li>
                     
