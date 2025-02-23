@@ -11,12 +11,14 @@ use App\Http\Controllers\QuisionerController;
 use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SubmateriController;
+use App\Http\Controllers\ValidasiController;
 
 // Auth
-Route::get('/', function () {
-    return redirect()->route('auth.login');
-});
 
+
+Route::get('/', function () {
+    return redirect()->route('indexsiswa.index');
+});
 Route::get('/login', [AuthController::class, 'login'])->name('auth.login');
 Route::post('/login', [AuthController::class, 'postLogin'])->name('auth.login.post');
 
@@ -80,4 +82,12 @@ Route::put('/quiz/{id}/edit', [QuisionerController::class, 'update']);
 Route::delete('/quiz/{id}', [QuisionerController::class, 'destroy'])->name('quiz.destroy');
 
 
+Route::get('/validasi', [ValidasiController::class, 'index'])->name('validasi.index');
+Route::post('/validasi', [ValidasiController::class, 'store'])->name('validasi.store');
+Route::delete('/validasi/{id}', [ValidasiController::class, 'destroy'])->name('validasi.destroy');
+Route::put('/validasi/{id}', [ValidasiController::class, 'update'])->name('validasi.update');
+
+
+
 Route::get('/siswa/index', [IndexSiswaController::class, 'index'])->name('indexsiswa.index');
+

@@ -18,7 +18,7 @@
         <!-- Header -->
         <header class="bg-blue-600 text-white p-4">
             <div class="container mx-auto flex justify-between items-center">
-                <h1 class="text-2xl font-bold">CerdasLearn</h1>
+                <h1 class="text-2xl font-bold">DiGiDuGo</h1>
                 <nav>
                     <ul class="flex space-x-4">
                         <li><a href="#" class="hover:underline">Beranda</a></li>

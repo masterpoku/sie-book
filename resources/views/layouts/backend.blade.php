@@ -58,7 +58,7 @@
                         <span class="app-brand-logo demo">
                             <img src="{{ asset('template/templateAdmin/assets/img/sa.png') }}" width="50" alt="Logo">
                         </span>
-                        <span style="font-size: 25px; font-weight: bold;">DigiDuGo</span>
+                        <span style="font-size: 25px; font-weight: bold; padding: 15px;">DigiDuGo</span>
                     </a>
                     <a href="#" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
                         <i class="bx bx-chevron-left bx-sm align-middle"></i>
@@ -118,7 +118,12 @@
                             <div>Quisioner</div>
                         </a>
                     </li>
-                    
+                    <li class="menu-item {{ request()->is('data/validasi*') ? 'active' : '' }}">
+                        <a href="{{ route('validasi.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-check"></i>
+                            <div>Validasi</div>
+                        </a>
+                    </li>
                 </ul>
             </aside>
             <!-- / Menu -->
