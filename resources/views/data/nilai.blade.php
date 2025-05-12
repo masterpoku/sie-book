@@ -74,7 +74,8 @@
                                 <tr>
                                     <th scope="col">ID</th>
                                     <th scope="col">Nama</th>
-                                    <th scope="col">QrCode</th>
+                                    <th scope="col">Postest</th>
+                                    <th scope="col">Pretest</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -82,7 +83,8 @@
                                 <tr>
                                     <th scope="row">{{ $index + 1 }}</th>
                                     <td>{{ $siswa->nama }}</td>
-                                    <td><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={{ $siswa->unique }}" alt="QRCode {{ $siswa->nama }}"></td>
+                                    <td>70</td>
+                                    <td>80</td>
                                 </tr>
                                 @endforeach
                             </tbody>

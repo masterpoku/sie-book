@@ -16,6 +16,7 @@ class Materi extends Model
         'mapel',
         'kelas',    // Kelas
         'name',     // Nama Materi
+        'description'
     ];
 
     // Relasi ke Submateri

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-    <title>{{ $title }} | DiGiDUgo</title>
+    <title>{{ $title }} | DiGiDuGo</title>
     <meta name="description" content="" />
 
     @yield('top')
@@ -87,10 +87,16 @@
                             <div>Siswa</div>
                         </a>
                     </li>
+                    <li class="menu-item {{ request()->is('data/banksiswa*') ? 'active' : '' }}">
+                        <a href="{{ route('data.banksiswa') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bxs-bank"></i>
+                            <div>Bank Siswa</div>
+                        </a>
+                    </li>
                     <li class="menu-item {{ request()->is('data/nilai*') ? 'active' : '' }}">
                         <a href="{{ route('data.nilai') }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bxs-bank"></i>
-                            <div>Bank Siswa</div>
+                            <div>Nilai Siswa</div>
                         </a>
                     </li>
                     <li class="menu-item {{ request()->is('data/mapel*') ? 'active' : '' }}">

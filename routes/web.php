@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BankController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IndexSiswaController;
 use App\Http\Controllers\KelasController;
@@ -16,9 +17,9 @@ use App\Http\Controllers\ValidasiController;
 // Auth
 
 
-Route::get('/', function () {
-    return redirect()->route('indexsiswa.index');
-});
+// Route::get('/', function () {
+//     return redirect()->route('indexsiswa.index');
+// });
 Route::get('/login', [AuthController::class, 'login'])->name('auth.login');
 Route::post('/login', [AuthController::class, 'postLogin'])->name('auth.login.post');
 
@@ -44,6 +45,12 @@ Route::delete('siswa/{siswa}', [SiswaController::class, 'destroy'])->name('siswa
 // data nilai
 
 Route::get('/nilai', [NilaiController::class, 'index'])->name('data.nilai');
+
+
+
+
+// bank siswa
+Route::get('/banksiswa', [BankController::class, 'index'])->name('data.banksiswa');
 
 
 
@@ -91,3 +98,18 @@ Route::put('/validasi/{id}', [ValidasiController::class, 'update'])->name('valid
 
 Route::get('/siswa/index', [IndexSiswaController::class, 'index'])->name('indexsiswa.index');
 
+Route::get('/siswa/soal', [IndexSiswaController::class, 'soal'])->name('indexsiswa.soal');
+
+
+Route::get('/validasi/{validitas}', [ValidasiController::class, 'validator'])->name('validator');
+
+Route::post('/update-data', [ValidasiController::class, 'updateData']);
+
+
+Route::get('/', [AuthController::class, 'loginsiswa'])->name('index.siswa');
+
+
+
+
+
+Route::get('/siswa/{qrcode}', [AuthController::class, 'postLoginsiswa'])->name('siswa.qrcode');

@@ -12,10 +12,6 @@ class Quiz extends Model
     protected $fillable = [
         'submateris_id',
         'pertanyaan',
-        'jawaban_a',
-        'jawaban_b',
-        'jawaban_c',
-        'jawaban_d',
         'jawaban_benar',
     ];
 

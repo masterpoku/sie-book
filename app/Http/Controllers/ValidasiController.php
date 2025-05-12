@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Validasi;
+use Illuminate\Support\Facades\DB;
 
 class ValidasiController extends Controller
 {
@@ -14,6 +15,37 @@ class ValidasiController extends Controller
         return view('data.validasi', compact('validasi', 'title'));
     }
 
+    public function validator(Request $request, $validitas = null)
+{
+    $title = 'validator';
+
+    $validitas = $validitas ? str_replace('Ahli ', '', $validitas) : null;
+
+    $validator = DB::table('validasi')
+        ->when($validitas, function ($query) use ($validitas) {
+            return $query->where('validitas', 'like', '%' . $validitas . '%');
+        })
+        ->get();
+
+    return view('data.validator', compact('validator', 'title'));
+}
+
+
+    public function updateData(Request $request)
+    {
+        $request->validate([
+            'id' => 'required|exists:validasi,id',
+            'skor' => 'required|numeric',
+            'catatan' => 'nullable|string'
+        ]);
+
+        $validasi = Validasi::find($request->id);
+        $validasi->skor = $request->skor;
+        $validasi->catatan = $request->catatan;
+        $validasi->save();
+
+        return response()->json(['message' => 'Data berhasil diperbarui!']);
+    }
     public function store(Request $request)
     {
         $request->validate([

@@ -19,10 +19,12 @@ class MateriController extends Controller
 
     public function store(Request $request)
 {
+    // dd($request->all());
     $request->validate([
         'mapel' => 'required|string|max:255',
         'kelas' => 'required|string|max:100',
         'name' => 'required|string|max:255',
+        'description' => 'nullable|string|max:65535',
     ]);
 
     Materi::create($request->all());
@@ -35,10 +37,12 @@ class MateriController extends Controller
 
 public function update(Request $request, $id)
 {
+    // dd($request->all());
     $request->validate([
         'mapel' => 'required|string|max:255',
         'kelas' => 'required|string|max:100',
         'name' => 'required|string|max:255',
+        'description' => 'nullable|string|max:65535'
     ]);
 
     $materi = Materi::findOrFail($id);

@@ -29,14 +29,11 @@ class QuisionerController extends Controller
     // Menyimpan soal baru
         public function store(Request $request)
     {
+        // dd($request->all());
         $request->validate([
             'submateris_id' => 'required|exists:submateris,id',
             'pertanyaan' => 'required|string',
-            'jawaban_a' => 'required|string',
-            'jawaban_b' => 'required|string',
-            'jawaban_c' => 'required|string',
-            'jawaban_d' => 'required|string',
-            'jawaban_benar' => 'required|string|in:A,B,C,D',
+            'jawaban_benar' => 'required|string|max:65555',
         ]);
 
         Quiz::create($request->all());

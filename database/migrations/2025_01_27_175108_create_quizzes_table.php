@@ -10,13 +10,9 @@ return new class extends Migration
     {
         Schema::create('quizzes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('submateris_id'); // Kolom untuk relasi
-            $table->text('pertanyaan');
-            $table->string('jawaban_a');
-            $table->string('jawaban_b');
-            $table->string('jawaban_c');
-            $table->string('jawaban_d');
-            $table->string('jawaban_benar'); // A, B, C, atau D
+            $table->unsignedBigInteger('submateris_id'); // Kolom untuk relasi ke submateri
+            $table->text('pertanyaan'); // Pertanyaan essay
+            $table->text('jawaban_benar'); // Jawaban essay yang dianggap benar
             $table->timestamps();
         });
     }

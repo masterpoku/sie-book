@@ -51,6 +51,7 @@
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
                                 </form>
+                                <td><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://{{ request()->getHost() }}/validasi/{{ $firstItem->validitas }}" alt="QRCode {{ $firstItem->validitas }}"></td>
                             </td>
                         </tr>
 
@@ -112,7 +113,7 @@
                         <!-- Input Skor -->
                         <div class="mb-3">
                             <label for="skor" class="form-label">Skor</label>
-                            <input type="number" name="skor" id="skor" class="form-control" min="1" max="5" required>
+                            <input type="number" name="skor" id="skor" class="form-control" min="0" max="5" required>
                         </div>
                     </div>
                     <div class="modal-footer">

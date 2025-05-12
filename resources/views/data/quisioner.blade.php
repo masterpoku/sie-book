@@ -57,10 +57,6 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <p><strong>Jawaban A:</strong> {{ $item->jawaban_a }}</p>
-                                    <p><strong>Jawaban B:</strong> {{ $item->jawaban_b }}</p>
-                                    <p><strong>Jawaban C:</strong> {{ $item->jawaban_c }}</p>
-                                    <p><strong>Jawaban D:</strong> {{ $item->jawaban_d }}</p>
                                     <p><strong>Jawaban Benar:</strong> {{ $item->jawaban_benar }}</p>
                                 </div>
                                 <div class="modal-footer">
@@ -116,30 +112,8 @@
                         <textarea name="pertanyaan" id="pertanyaan" class="form-control" required></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="jawaban_a" class="form-label">Jawaban A</label>
-                        <input type="text" name="jawaban_a" id="jawaban_a" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="jawaban_b" class="form-label">Jawaban B</label>
-                        <input type="text" name="jawaban_b" id="jawaban_b" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="jawaban_c" class="form-label">Jawaban C</label>
-                        <input type="text" name="jawaban_c" id="jawaban_c" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="jawaban_d" class="form-label">Jawaban D</label>
-                        <input type="text" name="jawaban_d" id="jawaban_d" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
                         <label for="jawaban_benar" class="form-label">Jawaban Benar</label>
-                        <select name="jawaban_benar" id="jawaban_benar" class="form-select" required>
-                            <option value="" disabled selected>Pilih Jawaban Benar</option>
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="C">C</option>
-                            <option value="D">D</option>
-                        </select>
+                        <input type="text" name="jawaban_benar" id="jawaban_benar" class="form-control" required>
                     </div>
                 </div>
                 <div class="modal-footer">
