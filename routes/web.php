@@ -10,6 +10,7 @@ use App\Http\Controllers\MateriController;
 use App\Http\Controllers\NilaiController;
 use App\Http\Controllers\QuisionerController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\SoalController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SubmateriController;
 use App\Http\Controllers\ValidasiController;
@@ -112,4 +113,15 @@ Route::get('/', [AuthController::class, 'loginsiswa'])->name('index.siswa');
 
 
 
-Route::get('/siswa/{qrcode}', [AuthController::class, 'postLoginsiswa'])->name('siswa.qrcode');
+Route::get('/siswa/login/{qrcode}', [AuthController::class, 'postLoginsiswa'])->name('siswa.qrcode');
+Route::post('/siswa/jawab-esai', [SoalController::class, 'jawabEsai'])->name('siswa.jawab.esai');
+
+
+
+Route::get('/siswa/postest', [SoalController::class, 'index'])->name('siswa.postest');
+
+
+Route::post('/siswa/postest/{submateri}/submit', [SoalController::class, 'submitPostest'])->name('siswa.postest.submit');
+
+Route::get('/siswa/postest/{submateri}', [SoalController::class, 'postest'])
+     ->name('siswa.postest.soal');

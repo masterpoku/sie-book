@@ -22,7 +22,8 @@
                 <nav>
                     <ul class="flex space-x-4">
                         <li><a href="{{ route('indexsiswa.index') }}" class="hover:underline">Beranda</a></li>
-                        <li><a href="{{ route('indexsiswa.soal') }}" class="hover:underline">Soal</a></li>
+                        <li><a href="{{ route('indexsiswa.soal') }}" class="hover:underline">Soal Pretest</a></li>
+                        <li><a href="{{ route('indexsiswa.soal') }}" class="hover:underline">Soal Postest</a></li>
                     </ul>
                 </nav>
             </div>
@@ -33,7 +34,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <!-- Sidebar Mata Pelajaran -->
                 <aside class="bg-white p-4 rounded shadow">
-                    <h2 class="text-xl font-bold mb-4">Materi Pelajaran</h2>
+                    <h2 class="text-xl font-bold mb-4">Soal Latihan Pelajaran</h2>
                     <ul class="space-y-2">
                         @php use Illuminate\Support\Str; @endphp
 
@@ -67,13 +68,10 @@
                         @endforeach
                     </ul>
                 </aside>
-                @php
-                    $siswa = session('siswa');
-                @endphp
+
                 <!-- Konten Materi -->
                 <section class="col-span-2 bg-white p-4 rounded shadow" id="main-content">
-                    <h1 class="text-xl font-bold mb-4" id="content-title">Hallo Siswa Teladan<br>{{ ucwords($siswa['nama'] ?? 'Nama tidak tersedia') }}</h1>
-
+                    <h1 class="text-xl font-bold mb-4" id="content-title">Postest</h1>
                     <div id="content-text">{!! $konten['judul_submateri'] ?? 'Silakan pilih sub-materi untuk melihat isi materinya.' !!}</div>
 
 
