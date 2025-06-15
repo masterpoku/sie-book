@@ -20,4 +20,9 @@ class Siswa extends Model
     {
         return $this->belongsTo(Kelas::class, 'kelas', 'kelas');
     }
+    public function jawabanEsai()
+{
+    return $this->hasMany(JawabanEsai::class, 'siswa_id');
+}
+
 }

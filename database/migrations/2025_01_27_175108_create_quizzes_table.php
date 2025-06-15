@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('quizzes', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('submateris_id'); // Kolom untuk relasi ke submateri
-            $table->text('pertanyaan'); // Pertanyaan essay
+            $table->longtext('pertanyaan'); // Pertanyaan essay
             $table->text('jawaban_benar'); // Jawaban essay yang dianggap benar
             $table->timestamps();
         });

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JawabanEsai;
 use App\Models\Quiz;
 use App\Models\Submateri;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class SoalController extends Controller
@@ -35,19 +37,33 @@ class SoalController extends Controller
         ]);
     }
     
-    public function postest($submateriSlug)
-    {
-        // Mencari data Submateri berdasarkan slug atau nama; firstOrFail() akan 404 jika tidak ditemukan
-        $submateri = Submateri::where('id', $submateriSlug)
-                              ->orWhere('name', $submateriSlug)
-                              ->firstOrFail();
 
-        // Mengambil semua soal (quiz) yang terkait dengan submateri tersebut
-        $quizzes = Quiz::where('submateris_id', $submateri->id)->get();
 
-        // Kirim data ke view 'siswa.postest'
-        return view('siswa.postest', compact('submateri', 'quizzes'));
+public function postest($submateriSlug)
+{
+    // Ambil submateri berdasarkan ID atau nama
+    $submateri = Submateri::where('id', $submateriSlug)
+                          ->orWhere('name', $submateriSlug)
+                          ->firstOrFail();
+
+    $siswaId = session('siswa')->id;
+
+    // Cek apakah sudah pernah menjawab
+    $sudahJawab = JawabanEsai::where('siswa_id', $siswaId)
+                              ->where('sub_materi', $submateri->id)
+                              ->exists();
+    // dd($siswaId);
+
+    if ($sudahJawab) {
+        return redirect()->route('indexsiswa.soal')->with('error', 'Kamu sudah mengerjakan postest ini.');
     }
+
+    // Ambil soalnya
+    $quizzes = Quiz::where('submateris_id', $submateri->id)->get();
+
+    return view('siswa.postest', compact('submateri', 'quizzes'));
+}
+
 
 
 
@@ -71,11 +87,7 @@ class SoalController extends Controller
             ]);
         }
     
-        return redirect()->route('siswa.postest', ['submateri' => $submateriId])
-            ->with('message', [
-                'type' => 'success',
-                'content' => 'Jawaban kamu berhasil dikirim!',
-            ]);
+        return view('siswa.terimakasih');
     }
     
 

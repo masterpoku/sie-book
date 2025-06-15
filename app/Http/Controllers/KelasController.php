@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kelas;
+use App\Models\Siswa;
 use Illuminate\Http\Request;
 
 class KelasController extends Controller
@@ -14,9 +15,21 @@ class KelasController extends Controller
     {
         $title = "Kelas";
          // Mengambil semua data kelas
-         $kelas = Kelas::all();
+        $kelas = Kelas::with('siswas')->get();
+
         return view('data.kelas', compact('title', 'kelas'));
     }
+
+    public function kelassiswa($kelas)
+    {
+        $title = "Data Siswa";
+        $class = $kelas; // kelas yang dikirim dari route
+        $datakelas = Kelas::all(); // ambil semua data kelas
+        $siswa = Siswa::where('kelas', $kelas)->get(); // cari siswa berdasarkan kelas yg dikirim
+        // dd($siswa);
+        return view('data.siswas', compact('title', 'siswa', 'datakelas', 'class'));
+    }
+
     public function store(Request $request)
     {
         $request->validate([

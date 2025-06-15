@@ -5,6 +5,7 @@ use App\Http\Controllers\BankController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IndexSiswaController;
 use App\Http\Controllers\KelasController;
+use App\Http\Controllers\KoreksiController;
 use App\Http\Controllers\MapelController;
 use App\Http\Controllers\MateriController;
 use App\Http\Controllers\NilaiController;
@@ -29,6 +30,11 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 
 // Data kelas
 Route::get('/kelas', [KelasController::class, 'index'])->name('kelas.index');
+
+
+Route::get('/kelas/{kelas}', [KelasController::class, 'kelassiswa'])->name('kelas.siswa');
+
+
 Route::post('/kelas', [KelasController::class, 'store'])->name('kelas.store');
 Route::get('/kelas/{id}/edit', [KelasController::class, 'edit'])->name('kelas.edit');
 Route::put('/kelas/{id}', [KelasController::class, 'update'])->name('kelas.update');
@@ -86,8 +92,8 @@ Route::get('submateri/by-materi/{id}', [SubmateriController::class, 'getByMateri
 Route::get('/quiz', [QuisionerController::class, 'index'])->name('quiz.index');
 Route::post('/quiz', [QuisionerController::class, 'store'])->name('quiz.store');
 
-Route::put('/quiz/{id}/edit', [QuisionerController::class, 'update']);
-Route::delete('/quiz/{id}', [QuisionerController::class, 'destroy'])->name('quiz.destroy');
+Route::put('/quiz/{id}', [QuisionerController::class, 'update'])->name('quiz.update');
+Route::delete('/quiz/delete/{id}', [QuisionerController::class, 'destroy'])->name('quiz.destroy');
 
 
 Route::get('/validasi', [ValidasiController::class, 'index'])->name('validasi.index');
@@ -113,7 +119,7 @@ Route::get('/', [AuthController::class, 'loginsiswa'])->name('index.siswa');
 
 
 
-Route::get('/siswa/login/{qrcode}', [AuthController::class, 'postLoginsiswa'])->name('siswa.qrcode');
+Route::get('/siswa/{qrcode}', [AuthController::class, 'postLoginsiswa'])->name('siswa.qrcode');
 Route::post('/siswa/jawab-esai', [SoalController::class, 'jawabEsai'])->name('siswa.jawab.esai');
 
 
@@ -125,3 +131,10 @@ Route::post('/siswa/postest/{submateri}/submit', [SoalController::class, 'submit
 
 Route::get('/siswa/postest/{submateri}', [SoalController::class, 'postest'])
      ->name('siswa.postest.soal');
+
+
+Route::get('/koreksi', [KoreksiController::class, 'index'])->name('koreksi.index');
+Route::get('/koreksi/{siswa_id}/{submateris}/jawaban', [KoreksiController::class, 'show'])->name('koreksi.show');
+
+
+Route::post('/koreksi/{siswa_id}/nilai', [KoreksiController::class, 'updateNilai'])->name('koreksi.nilai');

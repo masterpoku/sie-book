@@ -13,6 +13,8 @@ class CreateJawabanEsaiTable extends Migration
             $table->string('sub_materi');
             $table->text('jawaban');
             $table->timestamps();
+            $table->string('penilaian')->nullable();
+
 
             // Kalau pakai foreign key (boleh dihapus kalau gak pakai relasi)
             // $table->foreign('siswa_id')->references('id')->on('siswa')->onDelete('cascade');

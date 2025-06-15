@@ -81,18 +81,18 @@
                             <div>Kelas</div>
                         </a>
                     </li>
-                    <li class="menu-item {{ request()->is('data/siswa*') ? 'active' : '' }}">
+                    <!-- <li class="menu-item {{ request()->is('data/siswa*') ? 'active' : '' }}">
                         <a href="{{ route('siswa.index') }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bxs-contact"></i>
                             <div>Siswa</div>
                         </a>
-                    </li>
-                    <li class="menu-item {{ request()->is('data/banksiswa*') ? 'active' : '' }}">
+                    </li> -->
+                    <!-- <li class="menu-item {{ request()->is('data/banksiswa*') ? 'active' : '' }}">
                         <a href="{{ route('data.banksiswa') }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bxs-bank"></i>
                             <div>Bank Siswa</div>
                         </a>
-                    </li>
+                    </li> -->
                     <li class="menu-item {{ request()->is('data/nilai*') ? 'active' : '' }}">
                         <a href="{{ route('data.nilai') }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bxs-bank"></i>
@@ -111,10 +111,16 @@
                             <div>Materi</div>
                         </a>
                     </li>
-                    <li class="menu-item {{ request()->is('data/materi*') ? 'active' : '' }}">
+                    <li class="menu-item {{ request()->is('data/submateri*') ? 'active' : '' }}">
                         <a href="{{ route('submateris.index') }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-book-open"></i>
                             <div>Sub-Materi</div>
+                        </a>
+                    </li>
+                    <li class="menu-item {{ request()->is('data/postest*') ? 'active' : '' }}">
+                        <a href="{{ route('koreksi.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-book-open"></i>
+                            <div>Koreksi</div>
                         </a>
                     </li>
              

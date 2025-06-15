@@ -52,12 +52,14 @@
                                             </button>
                                             <ul id="{{ Str::slug($mapel . '-' . $materi) }}" class="hidden pl-4 mt-2 space-y-2">
                                                 @foreach($subMateriList as $subMateri)
-                                                    <!-- Submateri -->
-                                                    <li>
-                                                        <a href="#" onclick="showContent('{{ $subMateri }}')" class="block p-2 bg-gray-100 rounded hover:bg-gray-200">
-                                                            {{ $subMateri }} 
-                                                        </a>
-                                                    </li>
+                                                    @if (!str_contains(strtolower($subMateri), 'postest') && !str_contains(strtolower($subMateri), 'pretest'))
+                                                        <!-- Submateri -->
+                                                        <li>
+                                                            <a href="#" onclick="showContent('{{ $subMateri }}')" class="block p-2 bg-gray-100 rounded hover:bg-gray-200">
+                                                                {{ $subMateri }} 
+                                                            </a>
+                                                        </li>
+                                                    @endif
                                                 @endforeach
                                             </ul>
                                         </li>

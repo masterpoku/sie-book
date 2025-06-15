@@ -81,10 +81,10 @@ class SubmateriController extends Controller
     {
         $submateri = Submateri::findOrFail($id);
         $submateri->delete();
-
-        return response()->json([
-            'message' => 'Materi berhasil dihapus',
-        ], 200);
+        return redirect()->route('submateris.index')->with('message', [
+            'type' => 'success',
+            'content' => 'Submateri berhasil dihapus'
+        ]);
     }
 
     // Get details of a specific Materi

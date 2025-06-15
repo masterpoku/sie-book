@@ -28,29 +28,47 @@ class QuisionerController extends Controller
 
     // Menyimpan soal baru
         public function store(Request $request)
-    {
-        // dd($request->all());
-        $request->validate([
-            'submateris_id' => 'required|exists:submateris,id',
-            'pertanyaan' => 'required|string',
-            'jawaban_benar' => 'required|string|max:65555',
-        ]);
+{
+    $request->validate([
+        'submateris_id' => 'required|exists:submateris,id',
+        'pertanyaan' => 'required|string',
+        'jawaban_benar' => 'required|string|max:65555',
+    ]);
 
-        Quiz::create($request->all());
+    Quiz::create([
+        'submateris_id' => $request->submateris_id,
+        'pertanyaan' => $request->pertanyaan,
+        'jawaban_benar' => $request->jawaban_benar,
+    ]);
 
-        return redirect()->route('quiz.index')->with('message', [
-            'type' => 'success',
-            'content' => 'Soal berhasil ditambahkan!'
-        ]);
-    }
+    return redirect()->route('quiz.index')->with('message', [
+        'type' => 'success',
+        'content' => 'Soal berhasil ditambahkan!'
+    ]);
+}
 
 
-    public function update(Request $request, $id)
-    {
-        $quiz = Quiz::findOrFail($id);
-        $quiz->update($request->all());
-        return redirect()->route('quiz.index');
-    }
+public function update(Request $request, $id)
+{
+    $request->validate([
+        'submateris_id' => 'required|exists:submateris,id',
+        'pertanyaan' => 'required|string',
+        'jawaban_benar' => 'required|string|max:65555',
+    ]);
+
+    $quiz = Quiz::findOrFail($id);
+    $quiz->update([
+        'submateris_id' => $request->submateris_id,
+        'pertanyaan' => $request->pertanyaan,
+        'jawaban_benar' => $request->jawaban_benar,
+    ]);
+
+    return redirect()->route('quiz.index')->with('message', [
+        'type' => 'success',
+        'content' => 'Soal berhasil diperbarui!'
+    ]);
+}
+
 
     public function destroy($id)
     {

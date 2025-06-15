@@ -22,12 +22,16 @@
                 <nav>
                     <ul class="flex space-x-4">
                         <li><a href="{{ route('indexsiswa.index') }}" class="hover:underline">Beranda</a></li>
-                        <li><a href="{{ route('indexsiswa.soal') }}" class="hover:underline">Soal Pretest</a></li>
-                        <li><a href="{{ route('indexsiswa.soal') }}" class="hover:underline">Soal Postest</a></li>
+                        
                     </ul>
                 </nav>
             </div>
         </header>
+        @if(session('error'))
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+                <strong>Error!</strong> {{ session('error') }}
+            </div>
+        @endif
 
         <!-- Main Content -->
         <main class="flex-grow container mx-auto p-4">
@@ -50,11 +54,13 @@
                                             </button>
                                             <ul id="{{ Str::slug($mapel . '-' . $materi) }}" class="hidden pl-4 mt-2 space-y-2">
                                                 @foreach($subMateriList as $subMateri)
-                                                    <li>
-                                                        <a href="javascript:void(0);" onclick="showContent('{{ $subMateri }}')" class="block p-2 bg-gray-100 rounded hover:bg-gray-200">
-                                                            {{ $subMateri }}
-                                                        </a>
-                                                    </li>
+                                                    @if (str_contains(strtolower($subMateri), 'postest') || str_contains(strtolower($subMateri), 'pretest'))
+                                                        <li>
+                                                            <a href="javascript:void(0);" onclick="showContent('{{ $subMateri }}')" class="block p-2 bg-gray-100 rounded hover:bg-gray-200">
+                                                                {{ $subMateri }}
+                                                            </a>
+                                                        </li>
+                                                    @endif
                                                 @endforeach
                                             </ul>
                                         </li>
@@ -76,7 +82,7 @@
                     <div id="essay-question" class="mt-6 hidden">
                         <h2 class="text-lg font-semibold mb-2">Soal Esai</h2>
                         <a href="#" id="start-postest-btn" class="inline-block mt-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-                            Mulai Postest
+                            Mulai Soal
                         </a>
                     </div>
                 </section>
@@ -104,7 +110,7 @@
 
         function showContent(submateriNama) {
             document.getElementById('content-title').innerText = submateriNama;
-            document.getElementById('content-text').innerHTML = kontenMateri[submateriNama] || 'Konten belum tersedia.';
+            document.getElementById('content-text').innerHTML = 'Semoga Sukses Mengerjakan'; ;
 
             const id = submateriIdMap[submateriNama];
             const postestBtn = document.getElementById('start-postest-btn');

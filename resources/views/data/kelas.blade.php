@@ -23,6 +23,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Kelas</th>
+                    <th>Jumlah Siswa</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -31,6 +32,7 @@
                     <tr>
                         <td>{{ $item->id }}</td>
                         <td>{{ $item->kelas }}</td>
+                        <td>{{ $item->siswas->count() }}</td>
                         <td>
                             <!-- Tombol Edit -->
                             <button type="button" class="btn btn-sm btn-warning" 
@@ -45,6 +47,9 @@
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus?')">Hapus</button>
                             </form>
+                            <a href="{{ route('kelas.siswa', $item->kelas) }}" class="btn btn-sm btn-primary">
+                                List Siswa
+                            </a>
                         </td>
                     </tr>
 
